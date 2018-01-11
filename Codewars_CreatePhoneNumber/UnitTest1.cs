@@ -24,10 +24,17 @@ namespace Codewars_CreatePhoneNumber
         public static string CreatePhoneNumber(int[] nums)
         {
             var numString = string.Join("", nums);
+            return AddParent(numString) + AddDash(numString);
+        }
 
-            return "(" + numString.Substring(0, 3) + ") " +
-                   numString.Substring(3, 3) + "-" +
-                   numString.Substring(6, 4);
+        private static string AddDash(string s)
+        {
+            return s.Substring(3, 3) + "-" + s.Substring(6, 4);
+        }
+
+        private static string AddParent(string s)
+        {
+            return "(" + s.Substring(0, 3) + ") ";
         }
     }
 }
